@@ -3,12 +3,12 @@ package com.example.tccapp
 import android.os.Bundle
 import com.example.tccapp.base.BaseActivity
 import com.example.tccapp.base.ViewModelFactory
-import com.example.tccapp.di.coreComponent
 import javax.inject.Inject
 import kotlin.properties.Delegates
 import androidx.lifecycle.ViewModelProviders
 import androidx.databinding.DataBindingUtil
 import com.example.tccapp.databinding.ActivityTeachersBinding
+import com.example.tccapp.list.TeachersItemAdapter
 
 class TeachersActivity : BaseActivity() {
 
@@ -28,7 +28,6 @@ class TeachersActivity : BaseActivity() {
 
         component = DaggerTeachersComponent
             .builder()
-            .coreComponent(coreComponent())
             .teachersActivity(this)
             .build()
 
@@ -36,5 +35,6 @@ class TeachersActivity : BaseActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_teachers)
         binding.viewModel = viewModel
+        binding.recyclerTeachers.adapter = TeachersItemAdapter()
     }
 }

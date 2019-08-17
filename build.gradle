@@ -33,4 +33,5 @@ ext {
     rxJavaAndroidVersion = '2.1.0'
     rxKotlinVersion = '2.3.0'
     multidexVersion = '2.0.0'
+    recyclerViewVersion = '1.0.0'
 }

@@ -1,16 +1,13 @@
 package com.example.tccapp
 
-import com.example.tccapp.di.CoreComponent
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
+import dagger.Provides
 
 @Component(
     modules = [
         TeachersModule::class
-    ],
-    dependencies = [
-        CoreComponent::class
     ]
 )
 
@@ -26,12 +23,14 @@ interface TeachersComponent {
 
         @BindsInstance
         fun teachersActivity(teachersActivity: TeachersActivity): Builder
-
-        fun coreComponent(coreComponent: CoreComponent): Builder
     }
 }
 
 @Module
 class TeachersModule {
 
+    @Provides
+    fun providesTeachersViewModel(): TeachersViewModel {
+        return TeachersViewModel()
+    }
 }

@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_teachers"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:text="@{viewModel.item}"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:teachersItems="@{viewModel.teachers}"
-            tools:listitem="@layout/row_teachers" />
+            tools:text="Maria Augusta"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -22,6 +21,6 @@
 
         <variable
             name="viewModel"
-            type="com.example.tccapp.TeachersViewModel" />
+            type="com.example.tccapp.list.TeachersItemViewModel" />
     </data>
 </layout>
