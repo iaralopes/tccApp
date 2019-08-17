@@ -1,4 +1,4 @@
-package com.example.tccapp
+package com.example.tccapp.di
 
 import javax.inject.Scope
 

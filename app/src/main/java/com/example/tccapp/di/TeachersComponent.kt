@@ -1,5 +1,7 @@
-package com.example.tccapp
+package com.example.tccapp.di
 
+import com.example.tccapp.TeachersActivity
+import com.example.tccapp.TeachersViewModel
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module

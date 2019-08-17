@@ -1,4 +1,4 @@
-package com.example.tccapp.base
+package com.example.tccapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

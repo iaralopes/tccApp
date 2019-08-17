@@ -1,16 +1,18 @@
 package com.example.tccapp
 
 import android.os.Bundle
-import com.example.tccapp.base.BaseActivity
-import com.example.tccapp.base.ViewModelFactory
+import androidx.appcompat.app.AppCompatActivity
+import com.example.tccapp.di.ViewModelFactory
 import javax.inject.Inject
 import kotlin.properties.Delegates
 import androidx.lifecycle.ViewModelProviders
 import androidx.databinding.DataBindingUtil
 import com.example.tccapp.databinding.ActivityTeachersBinding
+import com.example.tccapp.di.DaggerTeachersComponent
+import com.example.tccapp.di.TeachersComponent
 import com.example.tccapp.list.TeachersItemAdapter
 
-class TeachersActivity : BaseActivity() {
+class TeachersActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTeachersBinding
 

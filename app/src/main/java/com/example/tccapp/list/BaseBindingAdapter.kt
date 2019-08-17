@@ -1,4 +1,4 @@
-package com.example.tccapp
+package com.example.tccapp.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
