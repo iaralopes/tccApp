@@ -1,7 +1,12 @@
 package com.example.tccapp
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import com.example.tccapp.service.RetrofitInitializer
+import com.example.tccapp.service.TeacherDetail
+import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 
 class TeacherDetailViewModel @Inject constructor(): ViewModel() {
@@ -10,9 +15,27 @@ class TeacherDetailViewModel @Inject constructor(): ViewModel() {
     val description = ObservableField<String>()
 
     fun getDetails(id: Int) {
-        name.set("Nome do professor")
-        teacherClass.set("Aula do professor")
-        description.set("Descricao descricao descricao descricao descricao descricao descricao")
+        val call = RetrofitInitializer().teachersService().teacherDetail(id)
+        call.enqueue(object : retrofit2.Callback<TeacherDetail?> {
+            override fun onResponse(
+                call: Call<TeacherDetail?>?,
+                response: Response<TeacherDetail?>?
+            ) {
+                response?.body()?.let {
+                    name.set(it.name)
+                    teacherClass.set(it.teacherClass)
+                    description.set(it.description)
+                }
+
+            }
+
+            override fun onFailure(
+                call: Call<TeacherDetail?>?,
+                t: Throwable?
+            ) {
+                Log.e("onFailure error", t?.message)
+            }
+        })
     }
 
 }
