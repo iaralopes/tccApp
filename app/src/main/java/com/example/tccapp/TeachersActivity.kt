@@ -11,6 +11,7 @@ import com.example.tccapp.databinding.ActivityTeachersBinding
 import com.example.tccapp.di.DaggerTeachersComponent
 import com.example.tccapp.di.TeachersComponent
 import com.example.tccapp.list.TeachersItemAdapter
+import com.example.tccapp.service.RetrofitInitializer
 
 class TeachersActivity : AppCompatActivity() {
 
