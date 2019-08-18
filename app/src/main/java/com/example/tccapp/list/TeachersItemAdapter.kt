@@ -7,13 +7,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tccapp.R
 import com.example.tccapp.databinding.RowTeachersBinding
+import com.example.tccapp.utils.SingleLiveEvent
 
-class TeachersItemAdapter : BaseBindingAdapter<String, RowTeachersBinding>(R.layout.row_teachers) {
+class TeachersItemAdapter(
+    val itemAdapterOnClickEvent: SingleLiveEvent<String>
+) : BaseBindingAdapter<String, RowTeachersBinding>(R.layout.row_teachers) {
 
     override fun bind(holder: DataBindViewHolder<RowTeachersBinding>, position: Int) {
         holder.binding.viewModel =
             TeachersItemViewModel(
-                items[position]
+                items[position],
+                itemAdapterOnClickEvent
             )
     }
 
