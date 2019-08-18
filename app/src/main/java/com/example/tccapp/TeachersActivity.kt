@@ -14,7 +14,6 @@ import com.example.tccapp.di.DaggerTeachersComponent
 import com.example.tccapp.di.TeachersComponent
 import com.example.tccapp.list.TeachersItemAdapter
 import com.example.tccapp.utils.SingleLiveEvent
-import androidx.core.content.ContextCompat.startActivity
 import android.content.Intent
 import com.example.tccapp.service.RetrofitInitializer
 
@@ -32,8 +31,8 @@ class TeachersActivity : AppCompatActivity() {
 
     private var component: TeachersComponent by Delegates.notNull()
 
-    private val _itemAdapterOnClickEvent = SingleLiveEvent<String>()
-    private val itemAdapterOnClickEvent: LiveData<String>
+    private val _itemAdapterOnClickEvent = SingleLiveEvent<Int>()
+    private val itemAdapterOnClickEvent: LiveData<Int>
         get() = _itemAdapterOnClickEvent
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,7 +10,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class TeachersViewModel @Inject constructor() : ViewModel() {
-    val teachers = ObservableField<List<String>>(emptyList())
+    val teachers = ObservableField<List<Teacher>>(emptyList())
 
     init {
 //        teachers.set(
