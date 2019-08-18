@@ -1,12 +1,13 @@
 package com.example.tccapp.list
 
+import com.example.tccapp.Teacher
 import com.example.tccapp.utils.SingleLiveEvent
 
 class TeachersItemViewModel(
-    val item: String,
-    val itemAdapterOnClickEvent: SingleLiveEvent<String>
+    val item: Teacher,
+    val itemAdapterOnClickEvent: SingleLiveEvent<Int>
 ) {
     fun onClick() {
-        itemAdapterOnClickEvent.postValue(item)
+        itemAdapterOnClickEvent.postValue(item.id)
     }
 }
