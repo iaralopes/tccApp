@@ -32,7 +32,7 @@ interface TeacherDetailComponent {
 class TeacherDetailModule {
 
     @Provides
-    fun providesTeachersViewModel(): TeacherDetailViewModel {
+    fun providesTeacherDetailViewModel(): TeacherDetailViewModel {
         return TeacherDetailViewModel()
     }
 }

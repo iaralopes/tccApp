@@ -6,13 +6,13 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tccapp.R
-import com.example.tccapp.Teacher
+import com.example.tccapp.TeacherViewEntity
 import com.example.tccapp.databinding.RowTeachersBinding
 import com.example.tccapp.utils.SingleLiveEvent
 
 class TeachersItemAdapter(
     val itemAdapterOnClickEvent: SingleLiveEvent<Int>
-) : BaseBindingAdapter<Teacher, RowTeachersBinding>(R.layout.row_teachers) {
+) : BaseBindingAdapter<TeacherViewEntity, RowTeachersBinding>(R.layout.row_teachers) {
 
     override fun bind(holder: DataBindViewHolder<RowTeachersBinding>, position: Int) {
         holder.binding.viewModel =
@@ -36,7 +36,7 @@ class TeachersItemAdapter(
         @BindingAdapter("teachersItems")
         fun setTeacherOptionItems(
             recyclerView: RecyclerView,
-            teachers: List<Teacher>
+            teachers: List<TeacherViewEntity>
         ) {
             val adapter = recyclerView.adapter
             if (adapter is TeachersItemAdapter) {

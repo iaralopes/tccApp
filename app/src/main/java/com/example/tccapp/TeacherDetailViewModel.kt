@@ -9,7 +9,7 @@ class TeacherDetailViewModel @Inject constructor(): ViewModel() {
     val teacherClass = ObservableField<String>()
     val description = ObservableField<String>()
 
-    init {
+    fun getDetails(id: Int) {
         name.set("Nome do professor")
         teacherClass.set("Aula do professor")
         description.set("Descricao descricao descricao descricao descricao descricao descricao")

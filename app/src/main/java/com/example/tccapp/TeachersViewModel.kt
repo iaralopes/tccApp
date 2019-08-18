@@ -5,16 +5,16 @@ import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 class TeachersViewModel @Inject constructor() : ViewModel() {
-    val teachers = ObservableField<List<Teacher>>(emptyList())
+    val teachers = ObservableField<List<TeacherViewEntity>>(emptyList())
 
     init {
         teachers.set(
             listOf(
-                Teacher(1, "Lesandro"),
-                Teacher(2, "Guta"),
-                Teacher(3, "Rommel"),
-                Teacher(4, "Marcelo"),
-                Teacher(5, "Eveline")
+                TeacherViewEntity(1, "Lesandro"),
+                TeacherViewEntity(2, "Guta"),
+                TeacherViewEntity(3, "Rommel"),
+                TeacherViewEntity(4, "Marcelo"),
+                TeacherViewEntity(5, "Eveline")
             )
         )
     }

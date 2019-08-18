@@ -1,10 +1,10 @@
 package com.example.tccapp.list
 
-import com.example.tccapp.Teacher
+import com.example.tccapp.TeacherViewEntity
 import com.example.tccapp.utils.SingleLiveEvent
 
 class TeachersItemViewModel(
-    val item: Teacher,
+    val item: TeacherViewEntity,
     val itemAdapterOnClickEvent: SingleLiveEvent<Int>
 ) {
     fun onClick() {
