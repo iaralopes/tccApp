@@ -10,18 +10,18 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class TeachersViewModel @Inject constructor() : ViewModel() {
-    val teachers = ObservableField<List<Teacher>>(emptyList())
+    val teachers = ObservableField<List<TeacherViewEntity>>(emptyList())
 
     init {
-//        teachers.set(
-//            listOf(
-//                "Lesandro",
-//                "Guta",
-//                "Rommel",
-//                "Marcelo",
-//                "Eveline"
-//            )
-//        )
+        teachers.set(
+            listOf(
+                TeacherViewEntity(1, "Lesandro"),
+                TeacherViewEntity(2, "Guta"),
+                TeacherViewEntity(3, "Rommel"),
+                TeacherViewEntity(4, "Marcelo"),
+                TeacherViewEntity(5, "Eveline")
+            )
+        )
 
         val call = RetrofitInitializer().teachersService().teachers()
         call.enqueue(object: retrofit2.Callback<List<Teacher>?> {
@@ -30,8 +30,8 @@ class TeachersViewModel @Inject constructor() : ViewModel() {
                 response?.body()?.let {
                     teachers.set(it.map(Teacher::name))
                 }
-            }
 
+            }
             override fun onFailure(call: Call<List<Teacher>?>?,
                                    t: Throwable?) {
                 Log.e("onFailure error", t?.message)
