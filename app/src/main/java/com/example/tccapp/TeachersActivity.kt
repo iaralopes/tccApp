@@ -55,6 +55,7 @@ class TeachersActivity : AppCompatActivity() {
     private fun listenToItemAdapterOnClickEvent() {
         itemAdapterOnClickEvent.observe(this, Observer {
             val intent = Intent(this, TeacherDetailActivity::class.java)
+            intent.putExtra("id", it)
             this.startActivity(intent)
         })
     }

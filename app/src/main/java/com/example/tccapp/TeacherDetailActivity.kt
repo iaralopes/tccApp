@@ -5,13 +5,9 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.example.tccapp.databinding.ActivityTeacherDetailBinding
-import com.example.tccapp.databinding.ActivityTeachersBinding
 import com.example.tccapp.di.DaggerTeacherDetailComponent
-import com.example.tccapp.di.DaggerTeachersComponent
 import com.example.tccapp.di.TeacherDetailComponent
-import com.example.tccapp.di.TeachersComponent
 import com.example.tccapp.di.ViewModelFactory
-import com.example.tccapp.list.TeachersItemAdapter
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
@@ -40,5 +36,7 @@ class TeacherDetailActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_teacher_detail)
         binding.viewModel = viewModel
+
+        viewModel.getDetails(intent.getIntExtra("id", 0))
     }
 }
