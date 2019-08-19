@@ -30,8 +30,8 @@ class TeachersActivity : AppCompatActivity() {
 
     private var component: TeachersComponent by Delegates.notNull()
 
-    private val _itemAdapterOnClickEvent = SingleLiveEvent<Int>()
-    private val itemAdapterOnClickEvent: LiveData<Int>
+    private val _itemAdapterOnClickEvent = SingleLiveEvent<String>()
+    private val itemAdapterOnClickEvent: LiveData<String>
         get() = _itemAdapterOnClickEvent
 
     override fun onCreate(savedInstanceState: Bundle?) {

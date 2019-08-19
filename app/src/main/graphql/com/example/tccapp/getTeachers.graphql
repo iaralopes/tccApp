@@ -1,6 +1,14 @@
 query teachersQuery{
   teachers{
+    id
+    name
+  }
+}
+
+query teacherDetailQuery ($id: ID!){
+  teacher(id: $id){
     name
     disciplines
+    description
   }
 }

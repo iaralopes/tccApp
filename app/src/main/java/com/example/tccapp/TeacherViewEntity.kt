@@ -1,6 +1,6 @@
 package com.example.tccapp
 
 data class TeacherViewEntity (
-    val id: Int,
+    val id: String,
     val name: String
 )

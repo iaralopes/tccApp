@@ -37,6 +37,6 @@ class TeacherDetailActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_teacher_detail)
         binding.viewModel = viewModel
 
-        viewModel.getDetails(intent.getIntExtra("id", 0))
+        viewModel.getDetails(intent.getStringExtra("id"))
     }
 }

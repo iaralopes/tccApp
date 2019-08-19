@@ -11,7 +11,7 @@ import com.example.tccapp.databinding.RowTeachersBinding
 import com.example.tccapp.utils.SingleLiveEvent
 
 class TeachersItemAdapter(
-    val itemAdapterOnClickEvent: SingleLiveEvent<Int>
+    val itemAdapterOnClickEvent: SingleLiveEvent<String>
 ) : BaseBindingAdapter<TeacherViewEntity, RowTeachersBinding>(R.layout.row_teachers) {
 
     override fun bind(holder: DataBindViewHolder<RowTeachersBinding>, position: Int) {

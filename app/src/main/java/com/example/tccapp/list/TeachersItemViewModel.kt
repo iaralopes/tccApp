@@ -5,7 +5,7 @@ import com.example.tccapp.utils.SingleLiveEvent
 
 class TeachersItemViewModel(
     val item: TeacherViewEntity,
-    val itemAdapterOnClickEvent: SingleLiveEvent<Int>
+    val itemAdapterOnClickEvent: SingleLiveEvent<String>
 ) {
     fun onClick() {
         itemAdapterOnClickEvent.postValue(item.id)
