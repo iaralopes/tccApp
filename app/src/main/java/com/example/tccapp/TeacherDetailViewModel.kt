@@ -14,5 +14,4 @@ class TeacherDetailViewModel @Inject constructor(): ViewModel() {
         teacherClass.set("Aula do professor")
         description.set("Descricao descricao descricao descricao descricao descricao descricao")
     }
-
 }

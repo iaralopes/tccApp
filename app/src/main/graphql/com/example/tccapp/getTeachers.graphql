@@ -1,0 +1,6 @@
+query teachersQuery{
+  teachers{
+    name
+    disciplines
+  }
+}
