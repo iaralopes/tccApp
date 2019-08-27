@@ -8,6 +8,6 @@ class TeachersItemViewModel(
     val itemAdapterOnClickEvent: SingleLiveEvent<Int>
 ) {
     fun onClick() {
-        itemAdapterOnClickEvent.postValue(item.id)
+        itemAdapterOnClickEvent.postValue(item.id.toInt())
     }
 }

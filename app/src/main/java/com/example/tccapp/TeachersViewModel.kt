@@ -3,6 +3,8 @@ package com.example.tccapp
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import com.example.tccapp.service.RequestEnvelope
+import com.example.tccapp.service.ResponseEnvelope
 import com.example.tccapp.service.RetrofitInitializer
 import com.example.tccapp.service.Teacher
 import retrofit2.Call
@@ -23,15 +25,15 @@ class TeachersViewModel @Inject constructor() : ViewModel() {
 //            )
 //        )
 
-        val call = RetrofitInitializer().teachersService().teachers()
-        call.enqueue(object : retrofit2.Callback<List<Teacher>?> {
+        val call = RetrofitInitializer().teachersService().teachers(RequestEnvelope())
+        call.enqueue(object : retrofit2.Callback<ResponseEnvelope> {
             override fun onResponse(
-                call: Call<List<Teacher>?>?,
-                response: Response<List<Teacher>?>?
+                call: Call<ResponseEnvelope>?,
+                response: Response<ResponseEnvelope>?
             ) {
                 response?.body()?.let {
                     teachers.set(
-                        it.map {
+                        it.body?.map {
                             TeacherViewEntity(
                                 it.id,
                                 it.name
@@ -41,7 +43,7 @@ class TeachersViewModel @Inject constructor() : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<List<Teacher>?>?, t: Throwable?) {
+            override fun onFailure(call: Call<ResponseEnvelope>?, t: Throwable?) {
                 Log.e("onFailure error", t?.message)
             }
         }

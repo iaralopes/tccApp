@@ -1,12 +1,12 @@
 package com.example.tccapp.service
 
-import com.tickaroo.tikxml.annotation.Attribute
-import com.tickaroo.tikxml.annotation.Xml
+import org.simpleframework.xml.Element
+import org.simpleframework.xml.Root
 
-@Xml(name = "teacher")
+@Root(name = "GetTeacherResponse")
 data class Teacher(
-    @Attribute(name = "id")
+    @Element(name = "Id", required = false)
     val id: String,
-    @Attribute(name = "name")
+    @Element(name = "Name", required = false)
     val name: String
 )
