@@ -3,7 +3,8 @@ package com.example.tccapp.service
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
-@Root(name = "Body", strict = false)
-class RequestBody {
-
-}
+@Root(name = "soap:Body", strict = false)
+data class RequestBody(
+    @Element(name = "GetTeachers" , required = false)
+    var requestModel: RequestModel? = null
+)

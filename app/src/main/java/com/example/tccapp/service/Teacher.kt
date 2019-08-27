@@ -3,7 +3,7 @@ package com.example.tccapp.service
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
-@Root(name = "GetTeacherResponse")
+@Root(name = "Teacher")
 data class Teacher(
     @Element(name = "Id", required = false)
     val id: String,

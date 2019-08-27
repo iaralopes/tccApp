@@ -6,15 +6,14 @@ import org.simpleframework.xml.NamespaceList
 import org.simpleframework.xml.Root
 
 
-@Root(name = "soapenv:Envelope")
+@Root(name = "s:Envelope")
 @NamespaceList(
+    Namespace(reference = "http://schemas.xmlsoap.org/soap/envelope/", prefix = "s"),
     Namespace(reference = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi"),
-    Namespace(reference = "http://www.w3.org/2001/XMLSchema", prefix = "xsd"),
-    Namespace(reference = "http://schemas.xmlsoap.org/soap/encoding/", prefix = "enc"),
-    Namespace(reference = "http://schemas.xmlsoap.org/soap/envelope/", prefix = "soapenv")
+    Namespace(reference = "http://www.w3.org/2001/XMLSchema", prefix = "xsd")
 )
 class ResponseEnvelope {
-    @Element(name = "GetTeachersResponse")
-    var body: List<Teacher>? = null
+    @Element(name = "s:Body", required = false)
+    var responseBody: ResponseBody? = null
 
 }

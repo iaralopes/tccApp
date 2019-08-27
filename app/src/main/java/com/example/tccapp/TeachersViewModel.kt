@@ -33,10 +33,10 @@ class TeachersViewModel @Inject constructor() : ViewModel() {
             ) {
                 response?.body()?.let {
                     teachers.set(
-                        it.body?.map {
+                        it.responseBody?.responseModel?.responseResult?.map {
                             TeacherViewEntity(
-                                it.id,
-                                it.name
+                                it.teacher.id,
+                                it.teacher.name
                             )
                         }
                     )
