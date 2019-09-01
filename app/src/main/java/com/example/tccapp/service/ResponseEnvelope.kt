@@ -13,7 +13,7 @@ import org.simpleframework.xml.Root
     Namespace(reference = "http://www.w3.org/2001/XMLSchema", prefix = "xsd")
 )
 class ResponseEnvelope {
-    @Element(name = "s:Body", required = false)
+    @field:Element(name = "Body", required = false)
     var responseBody: ResponseBody? = null
 
 }

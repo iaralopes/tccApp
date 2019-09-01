@@ -7,6 +7,6 @@ import org.simpleframework.xml.Root
 @Root(name = "GetTeachersResponse")
 @Namespace(reference = "http://tempuri.org/")
 data class ResponseModel(
-    @Element(name = "GetTeachersResult")
-    val responseResult: List<ResponseResult>
+    @field:Element(name = "GetTeachersResult")
+    var responseResult: ResponseResult? = null
 )

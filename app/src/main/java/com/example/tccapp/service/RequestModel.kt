@@ -6,7 +6,7 @@ import org.simpleframework.xml.Root
 
 @Root(name = "GetTeachers", strict = false)
 @Namespace(reference = "http://tempuri.org/")
-data class RequestModel(
-    @Element(name = "Code", required = false)
-    val code: String? = null
+data class RequestModel (
+    @field:Element(name = "Code", required = false)
+    var code: String? = ""
 )

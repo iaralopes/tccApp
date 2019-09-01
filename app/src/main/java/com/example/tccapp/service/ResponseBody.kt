@@ -3,8 +3,8 @@ package com.example.tccapp.service
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
-@Root(name = "s:Body", strict = false)
+@Root(name = "Body", strict = false)
 data class ResponseBody (
-    @Element(name = "GetTeachersResponse", required = false)
-    val responseModel: ResponseModel? = null
+    @field:Element(name = "GetTeachersResponse", required = false)
+    var responseModel: ResponseModel? = null
 )

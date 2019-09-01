@@ -13,7 +13,7 @@ import org.simpleframework.xml.Root
     Namespace(reference = "http://www.w3.org/2001/XMLSchema", prefix = "xsd")
 )
 
-data class RequestEnvelope(
-    @Element(name = "soap:Body", required = false)
+data class RequestEnvelope (
+    @field:Element(name = "soap:Body", required = false)
     var body: RequestBody? = null
 )
