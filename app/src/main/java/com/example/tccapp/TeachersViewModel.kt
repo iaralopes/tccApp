@@ -1,16 +1,12 @@
 package com.example.tccapp
 
+import android.os.AsyncTask
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import com.example.tccapp.service.RequestBody
-import com.example.tccapp.service.RequestEnvelope
-import com.example.tccapp.service.RequestModel
-import com.example.tccapp.service.ResponseEnvelope
-import com.example.tccapp.service.RetrofitInitializer
+import com.example.tccapp.service.SoapWebService
+import com.example.tccapp.service.SoapWebService.Companion.METHOD_GET_LIST
 import com.example.tccapp.service.Teacher
-import retrofit2.Call
-import retrofit2.Response
 import javax.inject.Inject
 
 class TeachersViewModel @Inject constructor() : ViewModel() {
@@ -26,34 +22,31 @@ class TeachersViewModel @Inject constructor() : ViewModel() {
 //                TeacherViewEntity(5, "Eveline")
 //            )
 //        )
+        GetTeachers().execute()
+    }
 
-        val requestModel = RequestModel(code = "tcc")
-        val requestBody = RequestBody(requestModel)
-        val requestEnvelope = RequestEnvelope(requestBody)
+    inner class GetTeachers : AsyncTask<Any, Any, List<Teacher>>() {
+        override fun doInBackground(vararg params: Any): List<Teacher> {
+            val response = SoapWebService().getTeachers(METHOD_GET_LIST)
+            Log.v("response", "response==" + response)
+            return response
+        }
 
-        val call = RetrofitInitializer().teachersService().teachers(requestEnvelope)
-        call.enqueue(object : retrofit2.Callback<ResponseEnvelope> {
-            override fun onResponse(
-                call: Call<ResponseEnvelope>?,
-                response: Response<ResponseEnvelope>?
-            ) {
-                response?.body()?.let {
-                    teachers.set(
-                        it.responseBody?.responseModel?.responseResult?.teachers?.map {
-                            TeacherViewEntity(
-                                it.id ?: "",
-                                it.name ?: ""
-                            )
-                        }
+        override fun onPostExecute(result: List<Teacher>?) {
+            super.onPostExecute(result)
+            Log.v("response", "OnPostresponse==" + result)
+            try {
+                teachers.set(result?.map {
+                    TeacherViewEntity(
+                        it.id ?: "",
+                        it.name ?: ""
                     )
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseEnvelope>?, t: Throwable?) {
-                Log.e("onFailure error", t?.message)
+                })
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
-        )
+
     }
 
 }

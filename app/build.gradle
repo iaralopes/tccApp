@@ -51,13 +51,5 @@ dependencies {
 
     api "androidx.recyclerview:recyclerview:$recyclerViewVersion"
 
-    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
-
-    implementation('com.squareup.retrofit2:converter-simplexml:2.6.1') {
-        exclude group: 'xpp3', module: 'xpp3'
-        exclude group: 'stax', module: 'stax-api'
-        exclude group: 'stax', module: 'stax'
-    }
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.6.1'
+    implementation 'com.google.code.ksoap2-android:ksoap2-android:3.6.4'
 }
