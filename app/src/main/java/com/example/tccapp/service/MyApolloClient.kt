@@ -4,7 +4,7 @@ import com.apollographql.apollo.ApolloClient
 
 object MyApolloClient{
 
-    private val BASE_URL_GRAPHQL = "https://sheltered-depths-85535.herokuapp.com/graphql"
+    private val BASE_URL_GRAPHQL = "http://157.230.182.47/graphql"
     val apolloClient: ApolloClient
 
     init {
